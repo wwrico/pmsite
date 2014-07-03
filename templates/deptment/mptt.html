@@ -1,0 +1,45 @@
+{% extends "base_site.html" %}
+{% load staticfiles %}
+{% block css_ext %}
+{% endblock css_ext %}
+
+{% block footer_ext %}
+	<script type="text/javascript">
+		$('#tt').tree({
+			onClick: function (node) {
+				$.messager.alert('警告', '结点' + node.text);
+			}
+		})
+
+		$('#dd').tooltip({    position: 'right', content: '<span style="color:#fff">This is the tooltip message.</span>', onShow: function () {
+			$(this).tooltip('tip').css({            backgroundColor: '#666', borderColor: '#666'        });
+		}});
+
+	</script>
+{% endblock footer_ext %}
+
+{% block content %}
+	<a href="#" title="This is the tooltip message." class="easyui-tooltip">Hover me</a>
+	<p></p>
+	<a id="dd" href="javascript:void(0)">Click here</a>
+	{% load mptt_tags %}
+	<ul class="easyui-tree" id="tt">
+		{% recursetree nodes %}
+			<li>
+				<span>{{ node.title }}</span>
+				{% if not node.is_leaf_node %}
+					<ul class="children">
+						{{ children }}
+					</ul>
+				{% endif %}
+			</li>
+		{% endrecursetree %}
+	</ul>
+
+	<div class="easyui-panel" style="padding:5px">
+		<ul class="easyui-tree" data-options="url:{% url  'dept_tree' %},method:'get',animate:true"></ul>
+	</div>
+
+{% endblock content %}
+{% block sidebar %}
+{% endblock sidebar %}

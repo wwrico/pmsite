@@ -1,0 +1,58 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+	<div id="container">
+		<h1></h1>
+		{% if form.errors %}
+			<p class="error">用户名密码错误!</p>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+			{{ user.username }},欢迎您的到来！
+			<form method="post" action="accounts/logout/">
+				<input type="submit" value="注销">
+			</form>
+		{% else %}
+			<div class="col-md-4">
+				<img src="/static/img/brand.jpg"></div>
+			</div>
+			<div class="col-md-4">
+				<div>
+					<form class="form-horizontal" action="" method="post" role="form">
+						{% csrf_token %}
+						<div class="form-group">
+							<label for="inputName" class="col-sm-3 control-label">登陆名(*)</label>
+
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="username" id="username" placeholder="登陆名">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword" class="col-sm-3 control-label">密码(*)</label>
+
+							<div class="col-sm-9">
+								<input type="password" class="form-control" id="password" name="password"
+								       placeholder="密码">
+							</div>
+						</div>
+						<div class="pull-right">
+	                    <span class="checkbox mtm pull-right">
+                            <label> <input type="checkbox" name="_remember_me" checked="checked"> 记住密码 </label>
+                        </span>
+							<button class="btn btn-fat btn-primary btn-large" id="login_summit" type="submit">登录
+							</button>
+							<input type="hidden" name="next" value="/account/welcome/"/>
+						</div>
+					</form>
+
+				</div>
+
+			</div>
+			<div class="col-md-4">
+				<div class="alert alert-danger display-none login-error" id="login_alert"></div>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}
+
+

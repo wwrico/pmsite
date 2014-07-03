@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../TodoList/.idea/TodoList.iml" filepath="$PROJECT_DIR$/../TodoList/.idea/TodoList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../bigfalse/.idea/bigfalse.iml" filepath="$PROJECT_DIR$/../bigfalse/.idea/bigfalse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../cdma/.idea/cdma.iml" filepath="$PROJECT_DIR$/../cdma/.idea/cdma.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../dblog/.idea/dblog.iml" filepath="$PROJECT_DIR$/../dblog/.idea/dblog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pmsite.iml" filepath="$PROJECT_DIR$/.idea/pmsite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../wwsite/.idea/wwsite.iml" filepath="$PROJECT_DIR$/../wwsite/.idea/wwsite.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<!-- ===============================================================================
+	   把一个页面抽象出与内容无关的东东，简化页面的内容
+	   加载相关的css及js 一个页面头部信息及内容部分，还有扩展的js部分
+ ================================================================================== -->
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<title>{% block title %}派工系统{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="a good website design by ww,program with django">
+	<meta name="author" content="ww">
+	{% block blockbots %}
+		<meta name="robots" content="NONE,NOARCHIVE"/>{% endblock %}
+
+	<!-- Bootstrap-->
+	<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+	<link href="{% static "css/docss.css" %}" rel="stylesheet">
+
+	<link href="{% static "easyui/themes/default/easyui.css" %}" rel="stylesheet">
+	<link href="{% static "easyui/themes/icon.css" %}" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	<script src id="{% static "js/attachEven.js" %}"></script>
+	{% block css_ext %}{% endblock %}
+
+
+</head>
+
+<body {% block body_ext %}{% endblock body_ext %} >
+<div id="global_waiting" style=" position:fixed; top:0; left:0; background-color: red; width: 200px;display:none ">
+	<span style="padding: 5px;">数据加载中...</span>
+</div>
+
+{% block page_body %} {% endblock %}
+
+
+<!--javascript Placed at the end of the document so the pages load faster -->
+<script src="{% static "js/jquery-2.0.0.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+
+<script src="{% static "easyui/jquery.easyui.min.js" %}"></script>
+
+<script type="text/javascript">
+	$('#global_waiting')
+			.ajaxStart(function () {
+				$(this).show();
+			})
+			.ajaxStop(function () {
+				$(this).hide();
+			});
+
+	window.onload = attachEvents;
+</script>
+{% block footer_ext %}
+{% endblock footer_ext %}
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block css_ext %}
+
+{% endblock css_ext %}
+
+{% block body_ext %}{% endblock body_ext %}
+
+{% block page_body %}
+	<a class="sr-only" href="#content">Skip to main content</a>
+	<!--navbar顶部工具条-->
+	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand">派工系统</a>
+			</div>
+			<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="../getting-started">查看派工</a>
+					</li>
+					<li>
+						<a href="../css">新增派工</a>
+					</li>
+					<li>
+						<a href="../components">报表</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="../about">关于</a>
+
+					<li class="divider"></li>
+					{% if user.is_authenticated %}
+						<li>
+							<p class="navbar-text">{{ user.username }},欢迎您的到来！</p>
+						</li>
+						<li>
+							<a href="{% url 'logout' %}">注销</a>
+						</li>
+					{% else %}
+						<li>
+							<a href="{% url 'login' %}">登录</a>
+						</li>
+						<li>
+							<a href="{% url 'login' %}">注册</a>
+						</li>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<!-- Docs page layout -->
+	<div class="bs-header" id="content">
+		<div class="container">
+			<h1>起步</h1>
+
+			<p>简要介绍Bootstrap，以及如何下载、使用，基本模版和案例，等等。</p>
+
+		</div>
+	</div>
+
+	<div class="container  bs-docs-container">
+
+		{% block messages %}{% endblock messages %}
+
+		<!-- Content -->
+		<div id="body_container">
+			{% block content %}
+				{{ content }}
+			{% endblock %}
+			{% block sidebar %}{% endblock %}
+		</div>
+
+		<!-- Footer
+			================================================== -->
+		{% block footer %}
+			<footer class="bs-footer" role="contentinfo">
+				<div class="container">
+
+
+					<p>Designed and built with all the love in the world by <a href="http://rico.cn"
+					                                                           target="_blank">rico</a>.</p>
+
+					<p><a href="mailto:dglewa@gmail.com">Email to ww </a>
+
+					<p>
+					<ul class="footer-links">
+						<li>相关技术：</li>
+						<li class="muted">&middot;</li>
+						<li><a href="http://v2.bootcss.com/">Django</a></li>
+						<li class="muted">&middot;</li>
+						<li><a href="http://www.bootcss.com">Bootstrap中文网</a></li>
+						<li class="muted">&middot;</li>
+						<li><a href="http://blog.getbootstrap.com">Jquery</a></li>
+						<li class="muted">&middot;</li>
+						<li>代码托管于:</li>
+						<li class="muted">&middot;</li>
+						<li><a href="https://github.com/twbs/bootstrap/releases">Github</a></li>
+					</ul>
+				</div>
+			</footer>
+		{% endblock footer %}
+	</div>
+
+{% endblock page_body %}
+
+{% block footer_ext %}
+{% endblock footer_ext %}

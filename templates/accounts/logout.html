@@ -1,0 +1,15 @@
+{% extends "base_site.html" %}
+{% load i18n %}
+
+
+<ul class="breadcrumb">
+	<li><a href="../../">{% trans 'Home' %}</a></li>
+</ul>
+
+{% block content %}
+
+	<p class="alert alert-info">{% trans "Thanks for spending some quality time with the Web site today." %}</p>
+
+	<p class="well"><a href="{% url "login" %}">{% trans 'Log in again' %}</a></p>
+
+{% endblock %}
