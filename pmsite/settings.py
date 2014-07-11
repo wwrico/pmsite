@@ -31,16 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-'django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions',
-'django.contrib.messages','django.contrib.staticfiles','mptt','django_mptt_admin','apps','apps.dairywork',
-'apps.accounts','apps.deptment','django-groundwork',
+	'django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions',
+	'django.contrib.messages','django.contrib.staticfiles','mptt','django_mptt_admin','apps','apps.accounts',
+	'apps.deptment','django-groundwork','apps.books','apps.project','apps.car','apps.dailywork',
 )
 
 MIDDLEWARE_CLASSES = (
-'django.contrib.sessions.middleware.SessionMiddleware','django.middleware.common.CommonMiddleware',
-'django.middleware.csrf.CsrfViewMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware',
-'django.contrib.auth.middleware.SessionAuthenticationMiddleware','django.contrib.messages.middleware.MessageMiddleware',
-'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.contrib.sessions.middleware.SessionMiddleware','django.middleware.common.CommonMiddleware',
+	'django.middleware.csrf.CsrfViewMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware',
+	'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+	'django.contrib.messages.middleware.MessageMiddleware','django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 ROOT_URLCONF = 'pmsite.urls'
@@ -77,14 +77,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
-os.path.join(BASE_DIR,'templates'),
+	os.path.join(BASE_DIR,'templates'),
 )
 STATICFILES_DIRS = (
-os.path.join(BASE_DIR,"static"),
-#    '/var/www/static/',
+	os.path.join(BASE_DIR,"static"),
+	#    '/var/www/static/',
 )
 
 TEMPLATE_LOADERS = (
-'django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',
-# 'django.template.loaders.eggs.Loader',
+	'django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader',
+	# 'django.template.loaders.eggs.Loader',
 )

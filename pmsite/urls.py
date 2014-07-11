@@ -11,8 +11,11 @@ urlpatterns = [# Examples:
 
                url(r'^admin/',include(admin.site.urls)),
                url(r'^go-to-django/$',RedirectView.as_view(url='http://djangoproject.com'),name='go-to-django'),
-               url(r'^$','apps.views.home',name='home'),url(r'^account/',include('apps.accounts.urls')),
-               url(r'^deptment/',include('apps.deptment.urls')),]
+               url(r'^$','apps.views.home',name='home'),
+               url(r'^account/',include('apps.accounts.urls')),
+               url(r'^deptment/',include('apps.deptment.urls')),
+               url(r'^publishers/',include('apps.books.urls')),
+               ]
 
 
 # for development only

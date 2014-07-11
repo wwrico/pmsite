@@ -1,0 +1,8 @@
+{% extends "base_site.html " %}
+{% block content %}
+	<h1>{{ wwobject.salutation }}</h1>
+	<p>{{ wwobject.name }}</p>
+	<p>Reporter: {{ wwobject.email }}</p>
+	<p>Published: {{ wwobject.last_accessed }}</p>
+	<p>Date: {{ now|date }}</p>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends "base_site.html " %}
+
+{% block content %}
+	<h2>WW's Publishers</h2>
+	<ul>
+		{% for publisher in my_favorite_publishers %}
+			<li>{{ publisher.name }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
